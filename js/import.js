@@ -1,0 +1,12 @@
+document.write('<script type="text/javascript" src="js/shooting/main.js"></script>');
+document.write('<script type="text/javascript" src="js/shooting/constants.js"></script>');
+document.write('<script type="text/javascript" src="js/shooting/game-obj.js"></script>');
+document.write('<script type="text/javascript" src="js/shooting/key-state.js"></script>');
+document.write('<script type="text/javascript" src="js/shooting/own-machine.js"></script>');
+document.write('<script type="text/javascript" src="js/shooting/own-beam.js"></script>');
+document.write('<script type="text/javascript" src="js/shooting/enemy.js"></script>');
+document.write('<script type="text/javascript" src="js/shooting/enemy-beam.js"></script>');
+document.write('<script type="text/javascript" src="js/shooting/off-screen-check.js"></script>');
+document.write('<script type="text/javascript" src="js/shooting/collision-detection.js"></script>');
+document.write('<script type="text/javascript" src="js/shooting/canvas-echo.js"></script>');
+document.write('<script type="text/javascript" src="js/shooting/cheat.js"></script>');

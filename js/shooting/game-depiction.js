@@ -13,6 +13,7 @@ SG.GameDepiction.prototype.initialize = function () {
   SG.bgFlameCount = 0;
   SG.score = 0;
   SG.damage = 0;
+  SG.invincibleFlame = 0;	
   SG.position = { x: SG.OWN_MACHINE_POSITION_X, y: SG.OWN_MACHINE_POSITION_Y };
 
   this.background();

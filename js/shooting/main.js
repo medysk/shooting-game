@@ -16,9 +16,8 @@ window.onload = function(){
 	var cnvs = document.getElementById('panel');
 	var pouse = false;
 	var gameTimer;
-	var standbyTimer;
-	var beforeToggleFlame = 0;
-	var pouse = true;
+	var gameDepiction = new SG.GameDepiction();
+
 	SG.position = { x: SG.OWN_MACHINE_POSITION_X, y: SG.OWN_MACHINE_POSITION_Y };
 	SG.ctx = cnvs.getContext('2d');
 
@@ -26,45 +25,37 @@ window.onload = function(){
 	window.addEventListener('keydown', SG.keyDown, true);
 	window.addEventListener('keyup', SG.keyUp, true);
 	window.addEventListener('keyup', SG.cheat, true);
+	window.addEventListener('keyup', execute, true);
 
-	// 背景
-	SG.ctx.fillStyle =	SG.BACKGROUND_COLOR;
-	SG.ctx.fillRect(SG.MIN_X, SG.MIN_X, SG.MAX_X, SG.MAX_Y);
+	gameDepiction.initialize();
 
-	standbyTimer = setInterval( standby, SG.FPS );
-	SG.canvasEcho('スペースキーで始まります', {x:100, y:250} );
-
-	function execute() {
- 		gameBehavior();
- 		ownBehavior();
-		enemyBehavior();
+	function execute(e) {
+		if( e.code !== 'Space' ) return false; // スペースが押されていない場合処理を行わないため
+		state = gameDepiction.getCurrentState();
+		if( state == 'initialize' || state == 'pause' ) {
+			gameTimer = setInterval(run, SG.FPS);
+		} else if( state == 'run' ) {
+			clearInterval(gameTimer);
+			gameDepiction.pause();
+		}
 	}
 
-	function gameBehavior() {
- 		SG.flameCount++;
-		SG.bgFlameCount++;
-		// canvasクリア
-		SG.ctx.clearRect(SG.MIN_X, SG.MIN_X, SG.MAX_X, SG.MAX_Y);
-		// 背景
-		SG.ctx.fillStyle =	SG.BACKGROUND_COLOR;
-		SG.ctx.fillRect(SG.MIN_X, SG.MIN_X, SG.MAX_X, SG.MAX_Y);
-		
-		SG.canvasEcho('score: ' + SG.score , {x:10, y:20} );
-		// スペースが押された かつ 前回一時停止してから12フレーム後(一時停止処理が連続で行われるため)の場合、一時停止
-		if( SG.pressedKey['pause'] && (beforeToggleFlame < SG.bgFlameCount - 12) ) {
-			toggleGame();
-		}
+	function run() {
+		SG.flameCount++;
 
+		gameDepiction.run();
+
+ 		ownBehavior();
+		enemyBehavior();
 		// Game Over
 		if( SG.damage === 3 ){
 			clearInterval(gameTimer);
-			SG.canvasEcho('Game Over', {x:180, y:300} );
+			gameDepiction.gameover();
 		}
-
 		// Game Clear
 		if( SG.CLEAR_FLAME < SG.flameCount ) {
 			clearInterval(gameTimer);
-			SG.canvasEcho('Game Clear', {x:180, y:300} );
+			gameDepiction.gameclear();
 		}
 	}
 
@@ -100,27 +91,5 @@ window.onload = function(){
 			SG.instances.EnemyBeam[key].action();
 		}
 
-	}
-
-	function standby() {
-		SG.bgFlameCount++;
-		// スペースが押された かつ 前回一時停止してから12フレーム後(一時停止処理が連続で行われるため)
-		if( SG.pressedKey['pause'] && (beforeToggleFlame < SG.bgFlameCount - 12) ) {
-			SG.pressedKey['pause'] = false;	// keystate側でfalseにならないことがあったので
-			toggleGame();
-		}
-	}
-
-	function toggleGame() {
-		beforeToggleFlame = SG.bgFlameCount;
-		if(pouse) {
-			pouse = false;
-			clearInterval(standbyTimer);
-			gameTimer = setInterval( execute, SG.FPS );
-		} else {
-			pouse = true;
-			clearInterval(gameTimer);
-			standbyTimer = setInterval( standby, SG.FPS );
-		}
 	}
 };

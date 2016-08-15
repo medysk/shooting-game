@@ -10,3 +10,4 @@ document.write('<script type="text/javascript" src="js/shooting/off-screen-check
 document.write('<script type="text/javascript" src="js/shooting/collision-detection.js"></script>');
 document.write('<script type="text/javascript" src="js/shooting/canvas-echo.js"></script>');
 document.write('<script type="text/javascript" src="js/shooting/cheat.js"></script>');
+document.write('<script type="text/javascript" src="js/shooting/game-depiction.js"></script>');

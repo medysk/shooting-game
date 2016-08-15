@@ -3,12 +3,12 @@ var SG = SG || {};
 
 // global変数
 SG.position; 			// 自機位置
-SG.score = 0;				// スコア
-SG.damage = 0;			// 自機ダメージ
+SG.score;				// スコア
+SG.damage;			// 自機ダメージ
 SG.pressedKey = {};		// キーの状態
-SG.invincibleFlame = 0;	// 自機無敵状態(flameCount + α)
-SG.flameCount = 0;		// ゲーム内フレーム
-SG.bgFlameCount = 0;	// ゲームトータルのフレーム(ポーズしている時も含む)
+SG.invincibleFlame;	// 自機無敵状態(flameCount + α)
+SG.flameCount;		// ゲーム内フレーム
+SG.bgFlameCount;	// ゲームトータルのフレーム(ポーズしている時も含む)
 SG.ctx = {};
 SG.instances  = { OwnMachine: {}, OwnBeam: {}, Enemy: {}, EnemyBeam: {} };
 

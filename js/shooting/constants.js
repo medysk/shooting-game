@@ -17,7 +17,8 @@
 	SG.Z_KEY_CODE     = 90;
 	SG.X_KEY_CODE     = 88;
 	SG.SPACE_KEY_CODE = 32;
-	SG.CHEAT_COMMAND = [38,38,40,40,37,39,37,39,66,65];
+	SG.CHEAT_COMMAND = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft',
+											'ArrowRight','ArrowLeft','ArrowRight','b','a'];
 
 	// -----  自機 -----
 	SG.OWN_MACHINE_HEIGHT = 10;						// 自機の高さ

@@ -9,14 +9,6 @@
 	SG.FPS = 1000 / 45;
 	SG.CLEAR_FLAME = 5000;
 
-	// ----- キー -----
-	SG.LEFT_KEY_CODE  = 37;
-	SG.UP_KEY_CODE    = 38;
-	SG.RIGHT_KEY_CODE = 39;
-	SG.DOWN_KEY_CODE  = 40;
-	SG.Z_KEY_CODE     = 90;
-	SG.X_KEY_CODE     = 88;
-	SG.SPACE_KEY_CODE = 32;
 	SG.CHEAT_COMMAND = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft',
 											'ArrowRight','ArrowLeft','ArrowRight','b','a'];
 

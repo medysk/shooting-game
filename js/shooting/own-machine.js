@@ -30,9 +30,35 @@ SG.OwnMachine.prototype.constructor = SG.GameObj;
 SG.OwnMachine.prototype.graphic = function() {
 	var ctx = SG.ctx;
 	ctx.beginPath();			// パスをクリア
-	ctx.moveTo(10, 0);			// 開始位置
-	ctx.lineTo(20, 10);
-	ctx.lineTo(0, 10);
+	ctx.moveTo(15,  0);			// 開始位置
+	ctx.lineTo(17,  4);
+	ctx.lineTo(17, 10);
+	ctx.lineTo(19, 12);
+	ctx.lineTo(19, 20);
+	ctx.lineTo(30, 28);
+	ctx.lineTo(30, 30);
+	ctx.lineTo(21, 34);
+	ctx.lineTo(24, 38);
+	ctx.lineTo(22, 39);
+	ctx.lineTo(21, 40);
+	ctx.lineTo(19, 38);
+	ctx.lineTo(16, 39);
+
+	ctx.lineTo(15, 37);
+	
+	ctx.lineTo(14, 39);
+	ctx.lineTo(11, 38);
+	ctx.lineTo( 9, 40);
+	ctx.lineTo( 8, 39);
+	ctx.lineTo( 6, 38);
+	ctx.lineTo( 9, 34);
+	ctx.lineTo( 0, 30);
+	ctx.lineTo( 0, 28);
+	ctx.lineTo(11, 20);
+	ctx.lineTo(11, 12);
+	ctx.lineTo(13, 10);
+	ctx.lineTo(13, 4);
+
 	ctx.closePath();
 	ctx.fillStyle = SG.OWN_MACHINE_COLOR[SG.damage];
 	ctx.fill();					// fillは塗りつぶし

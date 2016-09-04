@@ -13,8 +13,8 @@
 											'ArrowRight','ArrowLeft','ArrowRight','b','a'];
 
 	// -----  自機 -----
-	SG.OWN_MACHINE_HEIGHT = 10;						// 自機の高さ
-	SG.OWN_MACHINE_WIDTH = 20;					// 自機の幅
+	SG.OWN_MACHINE_HEIGHT = 40;						// 自機の高さ
+	SG.OWN_MACHINE_WIDTH = 30;					// 自機の幅
 	SG.OWN_MACHINE_POSITION_X = 225;				// 自機の位置
 	SG.OWN_MACHINE_POSITION_Y = 500;
 	SG.OWN_MACHINE_SPEED = 5;

@@ -44,6 +44,7 @@ window.onload = function(){
 		SG.flameCount++;
 
 		gameDepiction.run();
+		console.log('test');
 
  		ownBehavior();
 		enemyBehavior();
